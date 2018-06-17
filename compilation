@@ -1,0 +1,8 @@
+g++ -c -Wall message_queue.c -o message_queue.o;
+g++ -c server.cpp -Wall -lpthread -std=gnu++11 -o server.opp
+g++ test.cpp server.opp message_queue.o -lpthread -Wall -std=gnu++11 -o test
+
+
+g++ -g -c -Wall message_queue.c -DDEBUG -o message_queue_dbg.o;
+g++ -g -c server.cpp -Wall -lpthread -std=gnu++11 -DDEBUG -o server_dbg.opp
+g++ -g test.cpp server_dbg.opp message_queue_dbg.o -lpthread -Wall -DDEBUG -std=gnu++11 -o test_dbg
