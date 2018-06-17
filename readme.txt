@@ -11,3 +11,9 @@ otherwise in C++.
 as it turns out, I remember much less from C++ than I would like to admit.
 as a result of the above (I'm not sure if this can be classified as a C++ code), I didn't bother really
 with a proper makefile (would take me a little longer probably).
+
+to build the test, run the compilation executable from the folder.
+
+to use netcat as a client:
+the command I used was <netcat 127.0.0.1 9999 -p 12345>
+incremented by one the outgoing port number for several connections.
