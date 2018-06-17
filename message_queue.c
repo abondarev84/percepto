@@ -13,7 +13,7 @@ struct queue {
   element_t *tail;
   int added;
   int removed;
-} mqueue_t;
+};
 
 mqueue_t* init_queue()
 {
@@ -32,7 +32,7 @@ mqueue_t* init_queue()
 
 int add_to_queue(mqueue_t *mqueue, message_t *m)
 {
-  memcpy(mqueue->tail->data, m, MESSAGE_SIZE);
+  memcpy(mqueue->tail->data.data, m, MESSAGE_SIZE);
   mqueue->tail->next = calloc(1, sizeof(element_t));
   mqueue->tail = mqueue->tail->next;
   ++(mqueue->added);
@@ -62,7 +62,7 @@ int pop_from_queue(mqueue_t *mqueue, message_t *m)
 void destroy_queue(mqueue_t *mqueue)
 {
   while (mqueue->head) {
-    mqueue_t *tmp = mqueue->head->next;
+    element_t *tmp = mqueue->head->next;
     free(mqueue->head);
     mqueue->head = tmp;
   }

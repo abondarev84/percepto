@@ -29,9 +29,10 @@ int add_to_queue(mqueue_t *mqueue, message_t *m);
 
 int pop_from_queue(mqueue_t *mqueue, message_t *m);
 
-void destroy_queue(mqueue_t *mqueue, );
+void destroy_queue(mqueue_t *mqueue);
 
 #ifdef __cplusplus
-extern "C" {
-#endif // extern "C"
+} //extern "C"
+#endif 
+
 #endif //_MESSAGE_H_
