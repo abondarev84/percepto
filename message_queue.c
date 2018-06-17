@@ -17,11 +17,11 @@ struct queue {
 
 mqueue_t* init_queue()
 {
-  mqueue_t *mqueue = calloc(1, sizeof(mqueue_t));
+  mqueue_t *mqueue = (mqueue_t*)calloc(1, sizeof(mqueue_t));
   if (!mqueue) {
     return NULL;
   }
-  mqueue->head = calloc(1, sizeof(element_t));
+  mqueue->head = (element_t*)calloc(1, sizeof(element_t));
   mqueue->tail = mqueue->head;
 
   if (!mqueue->head) {
@@ -32,8 +32,8 @@ mqueue_t* init_queue()
 
 int add_to_queue(mqueue_t *mqueue, message_t *m)
 {
-  memcpy(mqueue->tail->data.data, m, MESSAGE_SIZE);
-  mqueue->tail->next = calloc(1, sizeof(element_t));
+  memcpy(&mqueue->tail->data, m, MESSAGE_SIZE);
+  mqueue->tail->next = (element_t*)calloc(1, sizeof(element_t));
   mqueue->tail = mqueue->tail->next;
   ++(mqueue->added);
 
