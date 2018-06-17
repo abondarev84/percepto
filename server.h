@@ -12,6 +12,9 @@ class Server {
   public:
     Server(unsigned int ListernPort, void (*f)(message_t *m));
     ~Server();
+
+    //success = 0
+    //failure = 1
     int Pop(message_t *m);
 
 

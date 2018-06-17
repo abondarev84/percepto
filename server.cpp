@@ -27,7 +27,7 @@ void ServerFunc(mqueue_t *mqueue, bool *ServerActive, unsigned int port, void (*
   fd_set readfds;
 
   //OK reply message
-  const char *message = "OK";
+  const char *message = "OK\n";
 
   //setting all initial client sockets to 0 to not check them
   for (i = 0; i < MAX_CLIENTS; i++)
